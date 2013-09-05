@@ -106,9 +106,9 @@ Once again I want to stress that the server response is not altered in any way. 
 = Advanced Debugging and Testing =
 There are some PHP metods that you can call to do several things:
 
-1) To turn debuggin on call the method bluntAjax::debugOn(). When debug is turned on the javascript file debug.js in the blunt-ajax plugin folder will be loaded. I use this file for deguggin purposes.
-2) To automatically run a test call the method bluntAjax::test(). This will cause a test to ve run that will send an AJAX request. The response of this request will be displayed in a JavaScript alert message. This message will contain the request method used and a list of the paremeters that were sent with the request. When testing is turned on the the file test.js in the blunt-ajax plugin folder will be loaded. I use this to test that everything is working as I expect.
-3) To include the full JavaScript version in your page call bluntAjax::minifiedOff(). This will cause the un-minified version of the blunt AJAX javascript to be loaded. I don't know why you would want to do this, I do it when I'm making modification to the script.
+1. To turn debuggin on call the method bluntAjax::debugOn(). When debug is turned on the javascript file debug.js in the blunt-ajax plugin folder will be loaded. I use this file for deguggin purposes.
+2. To automatically run a test call the method bluntAjax::test(). This will cause a test to ve run that will send an AJAX request. The response of this request will be displayed in a JavaScript alert message. This message will contain the request method used and a list of the paremeters that were sent with the request. When testing is turned on the the file test.js in the blunt-ajax plugin folder will be loaded. I use this to test that everything is working as I expect.
+3. To include the full JavaScript version in your page call bluntAjax::minifiedOff(). This will cause the un-minified version of the blunt AJAX javascript to be loaded. I don't know why you would want to do this, I do it when I'm making modification to the script.
 
 All of these functions must be called on the 'init' action.
 
