@@ -16,6 +16,8 @@ This script is for developers like myself that do not want to load some monolith
 
 Document for developers for use of this plugin can be found on the [Other Notes](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers) page.
 
+This is an adaptation of an AJAX script that I have been using and updating since around 2007. I like my scripts small and to the point. Hopefully others will find it useful.
+
 
 == Installation ==
 
