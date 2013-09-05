@@ -59,37 +59,30 @@ In your javascript code you call Blunt AJAX like this:
 &lt;/script&gt;`
 
 **debug:**
-
 (boolean)(optional) Should Debugging be turned on. You can turn on debugging that will display errors encountered by Blunt AJAX. If you include this as the first argument then debuging will be turned on when evaluating any other arguments. The default value is **false** (actually, the defualt value is set in the php file for this script, but unless you change it there the default is false. Form more information on this see the **Advanced Debugging and Testing** section.
 
 **url**
-
 (string)(optional) This would be the URL of the path of the server side PHP script that will handle the AJAX request. The defualt value for this argument is the path to the file admin-ajax.php on your site. This is the way you are supposed to handle AJAX requests, you can read more about that in the link I referenced above.
 
 However, I know that not everyone does it this way and it is not always necessary to go through the WordPress AJAX script. I will say that if you are going to access anything about your WordPress site that you should do it properly. Again, when not accessing the WordPress site, for example you're just going to set a SESSION value or something of that nature, you can provide the path to your own script. This path ***MUST*** be on your own server. AJAX only allows connection to the same server that hosts the page it is on and this script ***WILL NOT*** provide access to another server.
 
 **callback**
-
 (function)(optional)
 A valid callback function to process the server response.
 
 **parameters**
-
 (object)(optional)
 An object containing a list of name/value pairs to be sent with the http request.
 
 **method**
-
 (string)(optional)
 The method that should be used for the HTTP request, either "GET" or "POST". The default value of this argument is "GET". This value is case insensitive.
 
 **element_id**
-
 (string)(optional)
 A valid element id attribute in your document. This value can be used by the callback function for inserting HTML into the page. Default value is false.
 
 **pass**
-
 (any type)(optional)
 This argument can be of any type or value. The value of this object is not checked or altered in any way and is simply passed to the callback function.
 
