@@ -23,6 +23,7 @@ I am open to suggestions for improvement of this plugin. Submit a support reques
 **Things To Do**
 
 * Add option to automatically escape parameter values, will need to be off by default to maintain backwards compatibility.
+* Add ability to pass multidimensional objects/arrays as paremeters.
 
 
 == Installation ==
