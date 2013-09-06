@@ -18,6 +18,12 @@ Document for developers for use of this plugin can be found on the [Other Notes]
 
 This is an adaptation of an AJAX script that I have been using and updating since around 2007. I like my scripts small and to the point. Hopefully others will find it useful.
 
+I am open to suggestions for improvement of this plugin. Submit a support request.
+
+**Things To Do**
+
+* Add option to automatically escape parameter values, will need to be off by default to maintain backwards compatibility.
+
 
 == Installation ==
 
@@ -69,6 +75,7 @@ A valid callback function to process the server response.
 
 **parameters** (object)(optional)
 An object containing a list of name/value pairs to be sent with the http request.
+**Important Note: Currently the parameter values are not escaped (url encoded). If your values need to be escaped in any way you'll need to do this before you pass them to Blunt AJAX. Previous to making this a WP plugin I passed parameters to this script in a different format and for this I needed to escape them prior to calling the script, which is why it go overlooked when converting this to a plugin. I discovered this error when building a new feature that needed a space in one of the paremeters.**
 
 **method** (string)(optional)
 The method that should be used for the HTTP request, either "GET" or "POST". The default value of this argument is "GET". This value is case insensitive.
