@@ -72,7 +72,7 @@ In your javascript code you call Blunt AJAX like this:
 However, I know that not everyone does it this way and it is not always necessary to go through the WordPress AJAX script. I will say that if you are going to access anything about your WordPress site that you should do it properly. Again, when not accessing the WordPress site, for example you're just going to set a SESSION value or something of that nature, you can provide the path to your own script. This path ***MUST*** be on your own server. AJAX only allows connection to the same server that hosts the page it is on and this script ***WILL NOT*** provide access to another server.
 
 **callback** (function)(optional)
-A valid callback function to process the server response.
+A valid callback function to process the server response. The default value of the parameter is the default callback function that is explained below.
 
 **parameters** (object)(optional)
 An object containing a list of name/value pairs to be sent with the http request.
