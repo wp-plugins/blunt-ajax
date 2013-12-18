@@ -2,7 +2,7 @@
 Contributors: Hube2
 Tags: AJAX, JavaScript
 Requires at least: 2.8
-Tested up to: 3.7
+Tested up to: 3.8
 Stable tag: 1.0.0
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hube02%40earthlink%2enet&lc=US&item_name=Donate%20to%20Blunt%20AJAX%20WordPress%20Plugin&no_note=0&cn=Add%20special%20instructions%20to%20the%20seller%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 License: GPLv2 or later
