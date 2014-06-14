@@ -2,8 +2,8 @@
 Contributors: Hube2
 Tags: AJAX, JavaScript
 Requires at least: 2.8
-Tested up to: 3.8
-Stable tag: 1.0.0
+Tested up to: 3.9
+Stable tag: 1.0.1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hube02%40earthlink%2enet&lc=US&item_name=Donate%20to%20Blunt%20AJAX%20WordPress%20Plugin&no_note=0&cn=Add%20special%20instructions%20to%20the%20seller%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,11 +18,12 @@ Document for developers for use of this plugin can be found on the [Other Notes]
 
 This is an adaptation of an AJAX script that I have been using and updating since around 2007. I like my scripts small and to the point. Hopefully others will find it useful.
 
-I am open to suggestions for improvement of this plugin. Submit a support request.
+I am open to suggestions for improvement of this plugin. Submit a support request here or on [GitHub](https://github.com/Hube2/blunt-ajax)
 
 **Things To Do**
 
 * Add option to automatically escape parameter values, will need to be off by default to maintain backwards compatibility.
+* Alter Script so tha "debug" does not need to be first parameter
 * Add ability to pass multidimensional objects/arrays as paremeters.
 
 
@@ -53,9 +54,9 @@ Here is an example bit of code that enqueues a script and causes the Blunt Ajax 
 = Usage =
 In your javascript code you call Blunt AJAX like this:
 `&lt;script type="text/javascript"&gt;
-  var arguments = {debug:boolean,
-                   url:"path",
-                   callback: function,
+  var arguments = {debug:false,
+                   url:"/wp-admin/admin-ajax.php",
+                   callback: my_callback_function,
                    parameters:{action:action_name,
                                nonce:'12345678',
                                my_parameter:'Some Value"',
@@ -114,11 +115,11 @@ There are some PHP methods that you can call to do several things:
 2. To automatically run a test call the method **bluntAjax::test()**. This will cause a test to be run that will send an AJAX request. The response of this request will be displayed in a JavaScript alert message. This message will contain the request method used and a list of the paremeters that were sent with the request. When testing is turned on the the file test.js in the blunt-ajax plugin folder will be loaded. I use this to test that everything is working as I expect.
 3. To include the full JavaScript version in your page call **bluntAjax::minifiedOff()**. This will cause the un-minified version of the blunt AJAX javascript to be loaded. I don't know why you would want to do this, I do it when I'm making modifications to the script itself.
 
-All of these functions must be called on the 'init' action. This is when the blunt-ajax.js file is engueued. My init metho has a priority of 100 so your init function must have a lower priority; in most cases the default priority will be sufficient.
+All of these functions must be called on the 'init' action. This is when the blunt-ajax.js file is engueued. My init method has a priority of 100 so your init function must have a lower priority; in most cases the default priority will be sufficient.
 
 **Example of calling degugging and testing function**
 
-*ualling all functions together in a function*
+*calling all functions together in a function*
 `
 &lt;?php 
   add_action('init', 'my_init_function');
@@ -151,6 +152,10 @@ This plugin is for anyone that thinks the same way I do and does not automatical
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Tested compatability with WP 3.9
+* Corrected typos in readme.txt
 
 = 1.0.0 =
 * initial release as a WordPress Plugin
