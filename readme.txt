@@ -3,7 +3,7 @@ Contributors: Hube2
 Tags: AJAX, JavaScript
 Requires at least: 2.8
 Tested up to: 3.9
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hube02%40earthlink%2enet&lc=US&item_name=Donate%20to%20Blunt%20AJAX%20WordPress%20Plugin&no_note=0&cn=Add%20special%20instructions%20to%20the%20seller%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ AJAX in WordPress Without Frameworks
 
 == Description ==
 
-This script is for developers like myself that don't want to load some monolithic JavaScript framework just so they can do a bit of AJAX.
+This script is for developers like myself that don't want to load some monolithic JavaScript framework just to do a bit of AJAX.
 
 Document for developers for use of this plugin can be found on the [Other Notes](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers) page.
 
@@ -23,14 +23,21 @@ I am open to suggestions for improvement of this plugin. Submit a support reques
 
 == Installation ==
 
+**As a Plugin**
 1. Upload the Blunt GA plugin to the plugin folder of your site
 2. Activate it from the Plugins Page
-3. Read the [Documentation](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers)
+
+**Include within your theme or plugin**
+1. Copy the Blunt-Ajax folder to your theme or plugin folder
+2. Add the following code to your theme or plugin
+`include(dirname(__FILE__).'/blunt-ajax/blunt.ajax.php');`
+
+**Read the [Documentation](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers)**
 
 
 == Screenshots ==
 
-There are no screenshots. This is purely for developement and there is no user interface. See [Other Notes](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers) for documentation.
+There are no screenshots. This is purely for development and there is no user interface. See [Other Notes](http://wordpress.org/plugins/blunt-ajax/other_notes/#Documentation-for-Developers) for documentation.
 
 == Documentation for Developers ==
 
@@ -42,7 +49,7 @@ This plugin does not automatically add the Blunt AJAX script to every page of yo
 The sole purpose of Blunt AJAX is to make an http request and relay the response to a callback function. Blunt AJAX has no facility outside of a simple default callback function to deal with the response. You must write the JavaScript code to call Blunt AJAX and also the callback function to react to the server response if you wish to do more than what the default callback function can do; which is to either put the response into the inner HTML of some element or to show the response in a JavaScript alert message.
 
 = How to Include Blunt Ajax =
-The handle of the Blunt Ajax script is **"blunt-ajax"**.
+The handle of the Blunt Ajax script is **"blunt&#8209;ajax"**.
 Here is an example bit of code that enqueues a script and causes the Blunt Ajax script to load:
 `&lt;?php wp_enqueue_script($handle, $src, array('blunt-ajax')); ?&gt;`
 
@@ -64,11 +71,11 @@ In your javascript code you call Blunt AJAX something like this:
 
 **Arguments may be specified in any order**
 
-**debug:** (boolean)(optional) Should Debugging be turned on. You can turn on debugging that will display errors encountered by Blunt AJAX. The default value is **false** (actually, the defualt value is set in the php file for this script, but unless you change it there the default is false. Form more information on this see the **Advanced Debugging and Testing** section. Prior to version 1.1.0 debug needed to be the first parameter in arguments. In version 1.1.0 the JS code was changed and it no longer matters what order the debug parameter is included in the arguments list.
+**debug:** (boolean)(optional) Should Debugging be turned on. You can turn on debugging that will display errors encountered by Blunt AJAX. The default value is **false** (actually, the defualt value is set in the php file for this script, but unless you change it there the default is false. For more information on this see the **Advanced Debugging and Testing** section.) Prior to version 1.1.0 debug needed to be the first parameter in the arguments. In version 1.1.0 the JS code was changed and it no longer matters what order the debug parameter is included in the arguments list.
 
-**url** (string)(optional) This would be the URL of the path of the server side PHP script that will handle the AJAX request. The defualt value for this argument is the path to the file admin-ajax.php on your site. This is the way you are supposed to handle AJAX requests, you can read more about that in the link I referenced above.
+**url** (string)(optional) This would be the URL for the path of the server side PHP script that will handle the AJAX request. The defualt value for this argument is the path to the file admin&#8209;ajax.php on your site. This is the way you are supposed to handle AJAX requests in WP, you can read more about that in the link I referenced above.
 
-However, I know that not everyone does it this way and it is not always necessary to go through the WordPress AJAX script. I will say that if you are going to access anything about your WordPress site that you should do it properly. Again, when not accessing the WordPress site, for example you're just going to set a SESSION value or something of that nature, you can provide the path to your own script. This path ***MUST*** be on your own server. AJAX only allows connection to the same server that hosts the page it is on and this script ***WILL NOT*** provide access to another server.
+However, I know that not everyone does it this way and it is not always necessary to go through the WordPress AJAX script. I will say that if you are going to access anything about your WordPress site that you should do it properly. Again, when not accessing the WordPress site, for example you're just going to set a SESSION value or something of that nature, you can provide the path to your own script. This path ***MUST*** be on your own server. AJAX only allows connection to the same server that hosts the page it is on and this script ***WILL NOT*** provide access to another server. You do not need to include the absolute path to your script, AJAX requests work perfectly well with root relative URLs
 
 **callback** (function)(optional)
 A valid callback function to process the server response. The default value of the parameter is the default callback function that is explained below.
@@ -93,10 +100,10 @@ Starting in version 1.1.0 it is possible to pass multidimensional objects and ar
                    pass:'any value type or value'};
   bluntAjax(arguments);
 `
-As you can see, the parameter value contians objects as well as arrays.
+As you can see, the parameter value contians an object that is itself a multidimensional object containing other objects and arrays.
 
 **encoding** (string)(optional)
-The encoding method to use for all parameter values. Valid values are "none", "escape" or "uri". The default value for this argument is "none" to maintain backwards compatibility with previous version of Blunt Ajax. Prior to version 1.1.0 no escaping of parameters was done and the user of this script was required to properly escape or encode values before passing to Blunt Ajax.
+The encoding method to use for all parameter values. Valid values are "none", "escape" or "uri". The default value for this argument is "none" in order to maintain backwards compatibility with previous versions of Blunt Ajax. Prior to version 1.1.0 no escaping of parameters was done and the user of this script was required to properly escape or encode values before passing to Blunt Ajax.
 
 * none: No escaping or encoding is done. Values are passed to the server exactly as passed to Blunt Ajax.
 * escape: Each parameter value is escaped using the JaveScript escape() function, i.e. value = escape(value)
@@ -130,7 +137,7 @@ The following is what the default callback function looks like. The default call
   }
 &lt;/script&gt;`
 
-Notice that the pass parameter is not used, it is simply included in the above function to show you the parameters that are passed to the callback function and the order that they are passed in. You can use the default callback function to simply alert your response or insert it into the page. It is also valuable for debugging purposes.
+Notice that the pass parameter is not used in the default callback function, it is simply included to show you the parameters that are passed to the callback function and the order that they are passed in. You can use the default callback function to simply alert your response or insert it into the page. It is also valuable for debugging purposes.
 
 Once again I want to stress that the server response is not altered in any way. Whatever response your server side action sends is exactly what this parameter will contain. You can send any type of value (i.e. XML, HTML, plain text, JSON), but you must write the callback function to deal with the data. This plugin and the blunt-ajax.js script is for the sole purpose of sending a request and relaying the response.
 
@@ -158,12 +165,12 @@ All of these functions must be called on the 'init' action. This is when the blu
 `
 
 *using init action to call funtions*
-`&lt;
+`&lt;?php
   $instance = bluntAjax::getInstance();
   add_action('init', array($instance, 'degucOn'));
   add_action('init', array($instance, 'testOn'));
   add_action('init', array($instance, 'minifiedOff'));
-&gt;`
+?&gt;`
 
 
 == Frequently Asked Questions ==
@@ -182,6 +189,11 @@ You should use Blunt Ajax when you don't want to use a JavaScript framework. If 
 
 
 == Changelog ==
+
+= 1.1.1 =
+* Corrected a bug, not loading debug.js when debugging turned on
+* Made plugin safe for including in themes and plugins
+* Corrected some additional typos in readme.txt
 
 = 1.1.0 =
 * Altered JS so that debug does not need to be first parameter passed in arguments when calling bluntAjax
