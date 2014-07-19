@@ -3,7 +3,7 @@ Contributors: Hube2
 Tags: AJAX, JavaScript
 Requires at least: 2.8
 Tested up to: 3.9
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hube02%40earthlink%2enet&lc=US&item_name=Donate%20to%20Blunt%20AJAX%20WordPress%20Plugin&no_note=0&cn=Add%20special%20instructions%20to%20the%20seller%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,10 +24,12 @@ I am open to suggestions for improvement of this plugin. Submit a support reques
 == Installation ==
 
 **As a Plugin**
+
 1. Upload the Blunt GA plugin to the plugin folder of your site
 2. Activate it from the Plugins Page
 
 **Include within your theme or plugin**
+
 1. Copy the Blunt-Ajax folder to your theme or plugin folder
 2. Add the following code to your theme or plugin
 `include(dirname(__FILE__).'/blunt-ajax/blunt.ajax.php');`
@@ -189,6 +191,9 @@ You should use Blunt Ajax when you don't want to use a JavaScript framework. If 
 
 
 == Changelog ==
+
+= 1.1.2 =
+* Added check to plugin php file to ensure file is not accessed directly
 
 = 1.1.1 =
 * Corrected a bug, not loading debug.js when debugging turned on

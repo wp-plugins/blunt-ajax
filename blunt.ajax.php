@@ -4,7 +4,7 @@
     Plugin Name: Blunt Ajax
     Plugin URI: http://wordpress.org/plugins/blunt-ajax/
     Description: AJAX in WordPress Without Frameworks
-    Version: 1.1.1
+    Version: 1.1.2
     Author: John A. Huebner II, hube02@earthlink.net
     Author URI: https://github.com/Hube2
     License: GPL v2 or later
@@ -23,12 +23,15 @@
     GNU General Public License for more details http://www.gnu.org/licenses
     
   */
+	
+	// If this file is called directly, abort.
+	if (!defined('WPINC')) {die;}
   
   if (!class_exists('bluntAjax')) {
   
     class bluntAjax {
       
-      private $version = '1.1.1';
+      private $version = '1.1.2';
       private $debug = false;
       private $test = false;
       
