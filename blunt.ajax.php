@@ -9,7 +9,7 @@
     Author URI: https://github.com/Hube2
     License: GPL v2 or later
     
-    Blunt GA Plugin
+    Blunt Ajax Plugin
     Copyright (C) 2012, John A. Huebner II, hube02@earthlink.net
     
     This program is free software: you can redistribute it and/or modify
